@@ -1,7 +1,7 @@
 import { defineMongooseModel } from '#nuxt/mongoose';
 
 export const PlanModel = defineMongooseModel({
-  name: 'Plan',
+  name: 'plans',
   schema: {
     appKey: {
       type: String,
