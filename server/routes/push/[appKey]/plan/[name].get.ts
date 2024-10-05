@@ -5,6 +5,10 @@ export default defineEventHandler(async (event) => {
   const name = event.context.params?.name;
   try {
     const res = await PlanModel.findOne({ appKey, name }, { id: 1, name: 1, description: 1 });
+    if (!res) {
+      setResponseStatus(event, 404);
+      return { code: 4004, msg: 'Not Found' };
+    }
     console.log('getOne', res);
     return res;
   } catch (err) {
